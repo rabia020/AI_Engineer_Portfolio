@@ -7,7 +7,7 @@ export const siteConfig = {
   email: "rabiahaq020@gmail.com",
   github: "https://github.com/rabia020",
   linkedin: "https://www.linkedin.com/in/rabia-haq-727763282",
-  resume: "/resume.pdf"
+  resume: "https://drive.google.com/file/d/1hyH-M8ukiJX6RqGR47_B_j1nwKQkjxp3/view?usp=sharing"
 };
 
 export const navItems = [

@@ -64,7 +64,7 @@ export const projects: Project[] = [
     status: "Hackathon Project",
     image: "/images/projects/command_center.png",
     githubUrl: "https://github.com/rabia020/ReliefMesh-AI",
-    demoUrl: "https://reliefmesh-ai.streamlit.app/",
+    demoUrl: "https://drive.google.com/file/d/18_N3lFQLQPto2lj5gJ9sUJhdOVy-YaiR/view?usp=sharing",
     problem:
       "During disasters, incident reports, available resources and field information are scattered, which slows down coordination and decision-making.",
     solution:
