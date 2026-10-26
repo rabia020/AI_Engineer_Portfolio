@@ -10,9 +10,11 @@ export type ProjectCategory =
 export type Project = {
   slug: string;
   title: string;
+  subtitle?: string;
   category: ProjectCategory;
   description: string;
   longDescription: string;
+  highlights?: string[];
   technologies: string[];
   features: string[];
   featured: boolean;
@@ -28,13 +30,72 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "reliefmesh-ai",
+    title: "ReliefMesh AI",
+    subtitle: "Multi-Agent Disaster-Response Coordination Platform",
+    category: "Agentic AI",
+    description:
+      "Disaster-response coordination platform where AI agents triage incidents, analyse field photos, optimise resource allocation, and route critical decisions through human approval.",
+    longDescription:
+      "ReliefMesh AI is a team hackathon project built for the HEC-NCEAC & PEC Generative & Agentic AI Training (Cohort 11, Hackathon 2). A supervisor agent coordinates specialised agents for incidents, resources, mapping, image intelligence and optimisation, connected through three MCP servers, with an AI copilot and an approval center for human review.",
+    highlights: ["3 MCP Servers", "Image Intelligence", "Human Approval Center"],
+    technologies: [
+      "Python",
+      "FastAPI",
+      "Streamlit",
+      "MCP",
+      "Groq",
+      "SQLite",
+      "OR-Tools",
+      "Folium",
+      "Sentence Transformers"
+    ],
+    features: [
+      "Supervisor-led multi-agent workflow",
+      "Incident, Resource and Mapping MCP servers",
+      "AI image analysis of field photos",
+      "Resource allocation optimisation with OR-Tools",
+      "AI copilot for responders",
+      "Human approval center for critical actions",
+      "Interactive maps with Folium",
+      "Deployed backend and frontend"
+    ],
+    featured: true,
+    status: "Hackathon Project",
+    image: "/images/projects/command_center.png",
+    githubUrl: "https://github.com/rabia020/ReliefMesh-AI",
+    demoUrl: "https://reliefmesh-ai.streamlit.app/",
+    problem:
+      "During disasters, incident reports, available resources and field information are scattered, which slows down coordination and decision-making.",
+    solution:
+      "Bring incidents, resources, maps and field photos into one platform where AI agents analyse the situation, suggest optimised resource allocation, and send critical actions to humans for approval.",
+    architecture: [
+      "Incident reports and field photos",
+      "Streamlit dashboard",
+      "FastAPI backend",
+      "Supervisor agent",
+      "Incident / resource / mapping MCP servers",
+      "Image analysis and OR-Tools optimiser",
+      "Human approval center",
+      "Coordinated response plan"
+    ],
+    challenges: [
+      "Coordinating several specialised agents through one supervisor",
+      "Exposing incident, resource and mapping data as MCP tools",
+      "Keeping high-impact decisions behind human approval",
+      "Delivering a working, deployed system within a 20-day hackathon"
+    ]
+  },
+  {
     slug: "workpilot-ai",
     title: "WorkPilot AI",
+    subtitle: "Multi-Agent Work Management Platform",
     category: "Agentic AI",
     description:
       "AI-powered work management platform combining multi-agent orchestration, RAG, persistent memory, workplace tools, and human-in-the-loop automation.",
     longDescription:
       "WorkPilot AI is an AI work management platform designed around a supervisor-led multi-agent workflow. It combines retrieval, planning, workplace integrations, persistent memory, and approval-based actions.",
+    highlights: ["Multi-Agent Orchestration", "Persistent Memory", "Human-in-the-Loop"],
     technologies: [
       "LangGraph",
       "LangChain",
@@ -58,8 +119,9 @@ export const projects: Project[] = [
     ],
     featured: true,
     status: "Open Source",
-    githubUrl: "",
-    demoUrl: "",
+    image: "/images/projects/manager_panel.png",
+    githubUrl: "https://github.com/rabia020/WorkPilot-AI-Hackathon/tree/main",
+    demoUrl: "https://drive.google.com/file/d/1t4UnU3jqGWjHcP4VX6cAhy4iIjFtZq7c/view",
     problem:
       "Work information and actions are often spread across documents, messages, tasks, calendars, and other workplace tools.",
     solution:
@@ -80,61 +142,15 @@ export const projects: Project[] = [
     ]
   },
   {
-    slug: "datapilot",
-    title: "DataPilot",
-    category: "AI Analytics",
-    description:
-      "Agentic analytics platform that turns business data into SQL analysis, visualizations, anomaly detection, and AI-generated insights.",
-    longDescription:
-      "DataPilot provides a natural-language interface over structured business data. Its agent workflow routes requests to analytics capabilities and uses DuckDB for read-only analytical SQL.",
-    technologies: [
-      "Python",
-      "LangGraph",
-      "DuckDB",
-      "Pandas",
-      "SQL",
-      "Plotly",
-      "Streamlit"
-    ],
-    features: [
-      "Natural-language data analysis",
-      "SQL generation and validation",
-      "DuckDB analytics",
-      "Anomaly detection",
-      "Interactive visualizations",
-      "Executive summaries",
-      "Agent routing"
-    ],
-    featured: true,
-    status: "Open Source",
-    githubUrl: "",
-    demoUrl: "",
-    problem:
-      "Small-business data is often available in spreadsheets but requires technical skills to turn into useful analysis.",
-    solution:
-      "Provide a conversational analytics layer that translates business questions into validated read-only queries and useful visual insights.",
-    architecture: [
-      "User question",
-      "Agent router",
-      "Analytics / anomaly / recommendation agents",
-      "Validated DuckDB SQL",
-      "Data analysis and visualization",
-      "Natural-language response"
-    ],
-    challenges: [
-      "Keeping generated SQL safe and read-only",
-      "Routing different business questions to appropriate analysis paths",
-      "Presenting analytical output in a useful form"
-    ]
-  },
-  {
     slug: "bazaarpilot",
     title: "BazaarPilot",
+    subtitle: "AI Business Co-Pilot for Small Businesses",
     category: "Generative AI",
     description:
       "AI business co-pilot for sales, profit, inventory, anomaly detection, and business insights through natural-language interaction.",
     longDescription:
       "BazaarPilot is a small-business analytics co-pilot built around structured sales data. It supports natural-language business questions and provides analytical insights through an agent workflow.",
+    highlights: ["English · Roman Urdu · Urdu", "Sales & Profit Insights", "Approval-Based Actions"],
     technologies: [
       "Python",
       "LangGraph",
@@ -156,8 +172,9 @@ export const projects: Project[] = [
     ],
     featured: true,
     status: "Open Source",
-    githubUrl: "",
-    demoUrl: "",
+    image: "/images/projects/dashboard.png",
+    githubUrl: "https://github.com/rabia020/BazaarPilot-Agentic-Analytics-Engine-",
+    demoUrl: "https://drive.google.com/file/d/161fxEIhxl_cHKIrh8j_gxGIBnquVA0d6/view?usp=sharing",
     problem:
       "Small businesses may have useful sales data without having a dedicated analyst to interpret it.",
     solution:
@@ -176,64 +193,57 @@ export const projects: Project[] = [
       "Keeping business actions behind an approval step"
     ]
   },
-  {
-    slug: "enterprise-knowledge-assistant",
-    title: "Enterprise Knowledge Assistant",
-    category: "RAG",
+
+    {
+    slug: "resume-review-agent",
+    title: "Resume Review Agent",
+    subtitle: "AI-Powered Resume Feedback Assistant",
+    category: "Generative AI",
     description:
-      "Workplace knowledge assistant combining enterprise RAG, metadata-based access control, multi-agent orchestration, and workplace automation.",
+      "AI agent that reviews a resume and gives clear, actionable feedback to help candidates improve their CV for the roles they are applying to.",
     longDescription:
-      "An enterprise-style knowledge assistant that combines document retrieval with workplace integrations and agent orchestration.",
-    technologies: [
-      "LangGraph",
-      "LangChain",
-      "RAG",
-      "ChromaDB",
-      "PostgreSQL",
-      "FastAPI",
-      "Streamlit",
-      "n8n",
-      "Docker"
-    ],
+      "Resume Review Agent is a Generative AI application where a user uploads a resume and receives structured feedback on its content, strengths and areas for improvement through an interactive Streamlit interface.",
+    highlights: ["Resume Upload", "Actionable Feedback", "Live on Streamlit"],
+    technologies: ["Python", "LLM", "Prompt Engineering", "Streamlit"],
     features: [
-      "Enterprise document retrieval",
-      "Metadata-based access control",
-      "Multi-agent routing",
-      "Email and Calendar workflows",
-      "Slack and Jira workflows",
-      "Human-in-the-loop actions"
+      "Resume upload",
+      "AI-generated review",
+      "Strengths and improvement suggestions",
+      "Interactive Streamlit interface"
     ],
-    featured: true,
-    status: "Open Source",
-    githubUrl: "",
-    demoUrl: "",
+    featured: false,
+    status: "Live",
+    image: "/images/projects/Resume_review_agent.png",
+    githubUrl: "https://github.com/rabia020/Resume-Review-Agent/",
+    demoUrl: "https://drive.google.com/file/d/1ZHxH_tvvLuR5zirq2jo7SzmpyjJCHRz0/view?usp=sharing",
     problem:
-      "Workplace knowledge can be distributed across documents and communication systems, making it difficult to retrieve the right context quickly.",
+      "Job seekers often do not know which parts of their resume are weak or how to improve them for a specific role.",
     solution:
-      "Combine RAG with agent routing and workplace tools so a user can retrieve knowledge and coordinate actions through one interface.",
+      "Use an AI agent to read the resume and return clear, structured and actionable feedback in seconds.",
     architecture: [
-      "User",
-      "Supervisor",
-      "RAG / workplace agents",
-      "ChromaDB and metadata filters",
-      "PostgreSQL memory",
-      "n8n integrations",
-      "Human approval for side effects"
+      "Resume upload",
+      "Text extraction",
+      "LLM review agent",
+      "Structured feedback",
+      "Streamlit results view"
     ],
     challenges: [
-      "Controlling retrieval using metadata and access rules",
-      "Coordinating retrieval and external tool workflows",
-      "Handling side effects safely with approval gates"
+      "Extracting clean text from different resume formats",
+      "Writing prompts that produce specific, useful feedback",
+      "Presenting feedback in an easy-to-read layout"
     ]
   },
+  
   {
     slug: "rag-pdf-assistant",
     title: "RAG PDF Assistant",
+    subtitle: "Multi-PDF Question Answering",
     category: "RAG",
     description:
       "Multi-PDF question-answering application using retrieval-augmented generation, FAISS, embeddings, query rewriting, and page citations.",
     longDescription:
       "A document question-answering application designed to retrieve relevant PDF passages and provide answers grounded in the uploaded documents.",
+    highlights: ["Page-Level Citations", "Query Rewriting", "Cached Vector Indexes"],
     technologies: [
       "Python",
       "LangChain",
@@ -254,8 +264,9 @@ export const projects: Project[] = [
     ],
     featured: false,
     status: "Open Source",
-    githubUrl: "",
-    demoUrl: "",
+    image: "/images/projects/Rag_Dashboard.png",
+    githubUrl: "https://github.com/rabia020/RAG_Based_Application",
+    demoUrl: "https://drive.google.com/file/d/1-GlUDArFtNFDkNVm-T_R4gtqk-mPV5kT/view?usp=sharing",
     problem:
       "Finding specific information in long PDF documents can be slow when users have to manually search through pages.",
     solution:
@@ -277,11 +288,13 @@ export const projects: Project[] = [
   {
     slug: "movie-recommender",
     title: "Movie Recommendation System",
+    subtitle: "Content-Based Recommender",
     category: "Machine Learning",
     description:
       "Content-based movie recommendation application using feature similarity and an interactive Streamlit interface.",
     longDescription:
       "A machine-learning recommendation project that uses content information to find movies similar to a selected title.",
+    highlights: ["Cosine Similarity", "TMDB Metadata", "Interactive UI"],
     technologies: [
       "Python",
       "Pandas",
@@ -298,8 +311,9 @@ export const projects: Project[] = [
     ],
     featured: false,
     status: "Project",
-    githubUrl: "",
-    demoUrl: "",
+    image: "/images/projects/Movie_Recommender.png",
+    githubUrl: "https://github.com/rabia020/movie-recommender-streamlit",
+    demoUrl: "https://drive.google.com/file/d/1cn3jAE4gv5QEnNkmTHUU2vm3PJV_Sna3/view?usp=sharing",
     problem:
       "Users often want recommendations based on the characteristics of movies they already like.",
     solution:
@@ -314,40 +328,6 @@ export const projects: Project[] = [
     challenges: [
       "Preparing useful content features",
       "Balancing recommendation relevance with a simple user experience"
-    ]
-  },
-  {
-    slug: "online-car-booking",
-    title: "Online Car Booking Application",
-    category: "Software Development",
-    description:
-      "Android ride-booking application developed with a supporting administrative dashboard as a university final-year project.",
-    longDescription:
-      "An Android application for online car booking with a backend and administrative interface.",
-    technologies: ["Java", "Android", "PHP"],
-    features: [
-      "Ride booking workflow",
-      "Android application interface",
-      "Backend integration",
-      "Administrative dashboard"
-    ],
-    featured: false,
-    status: "University Project",
-    githubUrl: "",
-    demoUrl: "",
-    problem:
-      "Users need a convenient way to request and manage rides through a mobile interface.",
-    solution:
-      "Build an Android application backed by a web-oriented backend and administrative workflow.",
-    architecture: [
-      "Android application",
-      "Backend API",
-      "Application data",
-      "Administrative dashboard"
-    ],
-    challenges: [
-      "Connecting the mobile application with backend functionality",
-      "Designing an understandable booking workflow"
     ]
   }
 ];

@@ -12,6 +12,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -22,17 +23,28 @@ body {
   @apply bg-violet-200 text-slate-950 dark:bg-violet-900 dark:text-white;
 }
 
+@layer base {
+  :focus-visible {
+    @apply outline-none ring-2 ring-violet-500 ring-offset-2 ring-offset-white dark:ring-offset-slate-950;
+  }
+}
+
 @layer components {
   .container-shell {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
   }
 
   .section-space {
-    @apply py-20 sm:py-24;
+    @apply py-20 sm:py-28;
   }
 
   .section-kicker {
-    @apply text-xs font-semibold uppercase tracking-[0.2em] text-violet-600 dark:text-violet-300;
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-violet-600 dark:text-violet-300;
+  }
+
+  .section-kicker::before {
+    content: "";
+    @apply h-px w-6 bg-current;
   }
 
   .section-title {
@@ -48,7 +60,7 @@ body {
   }
 
   .button-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200;
   }
 
   .button-secondary {
@@ -56,11 +68,19 @@ body {
   }
 
   .contact-button {
-    @apply inline-flex items-center gap-2 rounded-xl border border-white/15 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-white/10 dark:border-slate-950/15 dark:text-slate-950 dark:hover:bg-slate-950/10;
+    @apply inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-white/10;
+  }
+
+  .contact-button-primary {
+    @apply inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-medium text-slate-950 transition hover:-translate-y-0.5 hover:bg-slate-200;
   }
 
   .card {
     @apply rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/70;
+  }
+
+  .card-hover {
+    @apply transition duration-300 hover:-translate-y-1 hover:border-violet-300/70 hover:shadow-soft dark:hover:border-violet-800/70;
   }
 
   .tag {
@@ -68,7 +88,7 @@ body {
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-violet-600 via-indigo-600 to-sky-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-violet-600 via-indigo-600 to-sky-500 bg-clip-text text-transparent dark:from-violet-400 dark:via-indigo-400 dark:to-sky-400;
   }
 
   .bg-grid {
@@ -77,10 +97,49 @@ body {
       linear-gradient(to bottom, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
     background-size: 32px 32px;
   }
+
+  .bg-grid-fade {
+    -webkit-mask-image: radial-gradient(ellipse at top, black 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at top, black 30%, transparent 75%);
+  }
+}
+
+@layer utilities {
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+}
+
+.marquee-track:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .dark .bg-grid {
   background-image:
     linear-gradient(to right, rgba(148, 163, 184, 0.07) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-marquee {
+    animation: none;
+  }
 }

@@ -4,9 +4,9 @@ export const siteConfig = {
   description:
     "AI Engineer building Generative AI, Agentic AI, RAG, and AI automation applications.",
   url: "https://your-domain.vercel.app",
-  email: "",
+  email: "rabiahaq020@gmail.com",
   github: "https://github.com/rabia020",
-  linkedin: "",
+  linkedin: "https://www.linkedin.com/in/rabia-haq-727763282",
   resume: "/resume.pdf"
 };
 
