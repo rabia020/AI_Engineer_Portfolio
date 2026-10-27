@@ -34,7 +34,7 @@ export function Hero() {
             {...fadeUp(0.05)}
             className="max-w-4xl text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl lg:text-7xl dark:text-white"
           >
-            Hi, I&apos;m Rabia.
+            Hi, I&apos;m Rabia Haq.
             <br />
             I build <span className="text-gradient">AI systems</span> that actually ship.
           </motion.h1>
